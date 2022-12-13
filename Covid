@@ -1,0 +1,40 @@
+const { template } = require('@babel/core')
+
+//put your student id, name, and surname here
+function countCovidStatus(covidStatusArray) {
+  let lowrisk = 0;
+  let highrisk = 0;
+  let positive = 0;
+
+  if(covidStatusArray === null || covidStatusArray === undefined){
+    return undefined
+  }else if(covidStatusArray.length === 0  ){
+    return {}
+
+  }else {
+    for (let status of covidStatusArray){
+      if(status === 'negative and low risk'){
+        lowrisk++
+    }else if(status === 'positive'){
+      positive++
+    }else if(status === 'negative and high risk'){
+      highrisk++
+  }
+}
+}
+    let statuscount = {}
+      if(lowrisk > 0){
+        statuscount['negative and low risk']=lowrisk
+      }if(highrisk > 0){
+        statuscount['negative and high risk']=highrisk
+      }if(positive >0){
+        statuscount['positive']=positive
+      }
+  return statuscount
+}
+    
+  
+
+
+  
+module.exports = countCovidStatus
